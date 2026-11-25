@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reported Items</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+</head>
+<body class="category">
+  
+<header>
+<nav>
+<!-- Copied Logo -->
+<a href="#" class="logo">Gc Findlink</a>
+ <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="category.html">Category Page</a></li>
+         <li><a href="report.html">Report Item</a></li>
+         <li><a href="chatbox.html">Chatbox</a></li>
+        </ul>
+ </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+</header>
+
+ <div class="menu-header">
+   <div class="title-group">
+    <h1>Lost Items</h1>
+    <span>Categories</span>
+   </div>
+ </div>
+  
+<!---- Search Bar ----->
+<div class="search-bar-container">
+  <input type="text"
+         id="searchInput"
+         placeholder="Search for your missing item"
+         onkeyup="handleSearchkey(event)">
+    
+  <button class="search-btn" onclick="searchItems()">Search</button>
+  <button class="clear-btn" id="clearSearchBtn" onclick="clearSearch()" style="display: none;">Clear</button>
+</div>
+
+<!---- Category Selections --->
+<nav class="category-bar">
+  <button class="cat-btn active" onclick="filterCategory('all', this)">All Lost Items</button>
+  <button class="cat-btn" onclick="filterCategory('Bags & Wallets', this)"> Bags & Wallets</button>
+  <button class="cat-btn" onclick="filterCategory('Drinkware', this)">Drinkware</button>
+  <button class="cat-btn" onclick="filterCategory('Electronic Devices', this)">Electronic Devices</button>
+  <button class="cat-btn" onclick="filterCategory('School Supplies', this)">School Supplies</button>
+  <button class="cat-btn" onclick="filterCategory('Fashion Accessories', this)">Fashion Accessories</button>
+  <button class="cat-btn" onclick="filterCategory('Personal Care', this)">Personal Care</button>
+</nav>
+  
+<!---- Result Failed ---->
+<p id="noResultsMessage" class="no-results">
+  Sorry but what you are looking for
+  is not here. Please use another
+  keyword and try again!
+</p>
+
+<!----- Row 1 ---->
+
+<div class="carousel-row-wrapper">
+  <button class="slide-arrow" onclick="slideRow(this, -1)">❮</button>
+  <div class="cards-track">
+ 
+<div class="lostitem-card" data-category="Bags & Wallets">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Wallet">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+   <div>
+    <h3>Wallet</h3>
+    <p>Location: Library<br>Date Found: October 10, 2026</p>
+  </div>
+  <div class="card-bottom">
+     <div class="btn-group">
+      <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+     </div>
+   </div>
+  </div>
+</div>
+
+
+
+<!----- Tumbler ---->
+
+<div class="lostitem-card" data-category="Drinkware">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Tumbler">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+  <div>
+    <h3>Tumbler</h3>
+    <p>Location: Cafeteria<br>Date Found: October 12, 2026</p>
+  </div>
+  <div class="card-bottom">
+    <div class="btn-group">
+      <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+    </div>
+   </div>
+  </div>
+</div>
+
+<!------ electronic devices ---->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Power Bank">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Power Bank</h3>
+      <p>Location: Room 306<br>Date Found: October 15, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Bracelet ----->
+
+<div class="lostitem-card" data-category="Fashion Accessories">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Bracelet">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Bracelet</h3>
+      <p>Location: Room 107<br>Date Found: October 24, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Umbrella ----->
+
+<div class="lostitem-card" data-category="Fashion Accessories">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Umbrella">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Umbrella</h3>
+      <p>Location: Room 201<br>Date Found: October 31, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Charger ---->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Charger">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Charger</h3>
+      <p>Location: Room 404<br>Date Found: November 5, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+<button class="slide-arrow" onclick="slideRow(this, 1)">❯</button>
+</div>
+
+<!----- Row 2 <---->
+<div class="carousel-row-wrapper">
+  <button class="slide-arrow" onclick="slideRow(this,-1)">❮</button>
+  <div class="cards-track">
+ 
+ <!----- Shoes ---->
+ 
+ <div class="lostitem-card" data-category="School Supplies">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Scientific Calculator">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Scientific Calculator</h3>
+      <p>Location: Room 505<br>Date Found: November 10, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Sweater ---->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Headphones">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Headphones</h3>
+      <p>Location: Room 206<br>Date Found: November 15, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Ring ---->
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Smartwatch">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Smartwatch</h3>
+      <p>Location: Room 303<br>Date Found: November 17, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---- Bag ----->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Bag">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Earbuds</h3>
+      <p>Location: Room 204<br>Date Found: November 19, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Necklace ------>
+
+<div class="lostitem-card" data-category="Fashion Acessories">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Necklace">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Necklace</h3>
+      <p>Location: Room 101<br>Date Found: November 20, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------ Towel ----->
+
+<div class="lostitem-card" data-category="Personal Care">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Face Towel">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Face Towel</h3>
+      <p>Location: Room 102<br>Date Found: November 20, 2026</p>
+    </div>
+    <div class="card-bottom">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+      </div>
+    </div>
+
+</div>
+<button class="slide-arrow" onclick="slideRow(this, 1)">❯</button>
+</div>
+
+<!----- Row 3 <---->
+<div class="carousel-row-wrapper">
+  <button class="slide-arrow" onclick="slideRow(this,-1)">❮</button>
+  <div class="cards-track">
+ 
+ <!----- Headphone ---->
+ 
+ <div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Earphone">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Earphone</h3>
+      <p>Location: Room 205<br>Date Found: November 20, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Ordinary Tumbler ---->
+
+<div class="lostitem-card" data-category="Personal Care">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Handkerchief">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Handkerchief</h3>
+      <p>Location: Room 108<br>Date Found: November 22, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Earphone ---->
+<div class="lostitem-card" data-category="School Supplies">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Notebook">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Notebook</h3>
+      <p>Location: Room 310<br>Date Found: November 22, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---- Cute Phone ----->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Iphone 13 Pro Max">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Iphone 13 Pro Max </h3>
+      <p>Location: Bathroom<br>Date Found: November 24, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!----- Laptop ------>
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Laptop">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Laptop</h3>
+      <p>Location: Room 305<br>Date Found: November 25, 2026</p>
+    </div>
+    <div class="card-bottom">
+      <div class="btn-group">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------ Tv Remote ----->
+
+<div class="lostitem-card" data-category="Electronic Devices">
+  <div class="card-img-box" onclick="openViewFromCard(this)">
+    <img src="items-photo.jpg" alt="Chromebook">
+    <span class="img-hint">View</span>
+  </div>
+  <div class="card-info">
+    <div>
+      <h3>Chromebook</h3>
+      <p>Location: Room 509<br>Date Found: November 25, 2026</p>
+    </div>
+    <div class="card-bottom">
+        <button class="view-btn" onclick="openViewFromCard(this)">view</button>
+      </div>
+      </div>
+    </div>
+
+</div>
+<button class="slide-arrow" onclick="slideRow(this, 1)">❯</button>
+</div>
+
+ <!---- Modal --->
+ <div class="modal-overlay" id="viewModal" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="close-modal" onclick="document.getElementById('viewModal').style.display = 'none'">&times;</button>
+      <img id="modalImg" src="" alt="Item preview">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <button type="button" class="details-btn" onclick="window.location.href='claimverifypart.html'">Claim It Here!</button>
+    </div>
+ </div>
+ 
+<!----- JS Part ----->
+<script>
+ function slideRow(arrowBtn, direction) {
+ const wrapper = arrowBtn.parentElement;
+ const track = wrapper.querySelector('.cards-track');
+ const scrollAmount = 280; 
+ track.scrollBy({
+   left: direction * scrollAmount, behavior: 'smooth'
+   });
+ }
+ 
+ // Interactive Image and View Part //
+ function openViewFromCard(element) {
+   const card = element.closest('.lostitem-card');
+   const title = card.querySelector('h3').innerText;
+   const desc = card.querySelector('p').innerText;
+   const imgSrc = card.querySelector('img').src;
+   
+   document.getElementById('modalTitle').innerText = title;
+   document.getElementById('modalDesc').innerText = desc;
+   document.getElementById('modalImg').src = imgSrc;
+   document.getElementById('viewModal').style.display = 'flex';
+ }
+
+ function closeModal(event) {
+   if (event.target.id === 'viewModal'){
+   document.getElementById('viewModal').style.display = 'none';
+   }
+ }
+
+// Category Filter //
+
+function filterCategory(category,btnElement) {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('clearSearchBtn').style.display = 'none';
+  document.getElementById('noResultsMessage').style.display = 'none';
+  
+  document.querySelectorAll('.cat-btn').forEach(btn =>{
+    btn.classList.remove('active');
+  });
+  if (btnElement) btnElement.classList.add('active');
+  
+  const extraRow = document.getElementById('extraRow');
+  if (extraRow) extraRow.style.display = '';
+    
+  const cards = document.querySelectorAll('.lostitem-card');
+    cards.forEach(card => {
+      const cardCat = (card.getAttribute('data-category') || '').toLowerCase();
+      if (category === 'all' || cardCat === category.toLowerCase()) {
+         card.style.display = 'flex';
+      }else {
+        card.style.display = 'none';
+      }
+    });
+    
+    updateRowVisibility();
+}
+
+function handleSearchkey(event) {
+  if (event.key == 'Enter') {
+    searchItems();
+  }
+  if (document.getElementById('searchInput').value.trim() === '') {
+    clearSearch();
+  }
+}
+
+function searchItems() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const noResultsMsg = document.getElementById('noResultsMessage');
+  
+  if (query === '') {
+    clearSearch();
+   return;
+  }
+
+ clearBtn.style.display = 'inline-block';
+ 
+ document.querySelectorAll('.cat-btn').forEach(btn => {
+   btn.classList.remove('active');
+ });
+ 
+ let matchCount = 0
+ const cards = document.querySelectorAll('.lostitem-card');
+  
+  cards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const desc = card.querySelector('p').textContent.toLowerCase();
+    const category = (card.getAttribute('data-category') || '').toLowerCase();
+    
+    if (title.includes(query) || desc.includes(query) || category.includes(query)) {
+      card.style.display = 'flex';
+      matchCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  
+  noResultsMsg.style.display = matchCount === 0 ? 'block' : 'none';
+  updateRowVisibility();
+}
+
+function goToClaimStatus() {
+  window.location.href = "ClaimArea.html";
+}
+
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('clearSearchBtn').style.display = 'none';
+  document.getElementById('noResultsMessage').style.display = 'none';
+  
+  const allBtn = document.querySelector('.cat-btn');
+  filterCategory('all', allBtn);
+}
+
+function updateRowVisibility() {
+  const rows = document.querySelectorAll('.carousel-row-wrapper');
+  rows.forEach(row => {
+    const visibleCards = Array.from(row.querySelectorAll('.lostitem-card')).filter(
+         card => card.style.display !== 'none');
+         row.style.display = visibleCards.length > 0 ? 'flex' : 'none';
+  });
+}
+
+// Mobile Nav Menu //
+
+  var navLinks = document.getElementById("navLinks");
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+  
+</script>
+</body>
+</html>

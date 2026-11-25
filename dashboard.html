@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <nav>
+<!-- Copied Logo -->
+<a href="index.html" class="logo">Gc FindLink</a>
+ <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="category.html">Category Page</a></li>
+         <li><a href="report.html">Report Item</a></li>
+         <li><a href="chatbox.html">Chatbox</a></li>
+        </ul>
+ </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+<div class ="dashboard-wrapper">
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Lost Items</th>
+          <th>Finder</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Claimnant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tumbler</td>
+          <td>user101</td>
+          <td>4:00 PM</td>
+          <td>Nov 21, 2026</td>
+          <td>CCS Lab2</td>
+          <td class="status-pending">Under Review</td>
+          <td>user302</td>
+        </tr>
+         <tr>
+          <td>Wallet</td>
+          <td>user202</td>
+          <td>4:30 PM</td>
+          <td>Nov 23, 2026</td>
+          <td>Cafeteria</td>
+          <td class="status-pending">Under Review</td>
+          <td>user401</td>
+        </tr>
+         <tr>
+          <td>Umbrella</td>
+          <td>user097</td>
+          <td>7:46 AM</td>
+          <td>Nov 23, 2026</td>
+          <td>Room107</td>
+          <td class="status-succesful">Successful Return</td>
+          <td>user506</td>
+        </tr>
+         <tr>
+          <td>Charger</td>
+          <td>user207</td>
+          <td>10:00 AM</td>
+          <td>Nov 24, 2026</td>
+          <td>Room306</td>
+          <td class="status-pending">Under Review</td>
+          <td>user667</td>
+        </tr>
+         <tr>
+          <td>Headphone</td>
+          <td>user357</td>
+          <td>8:00 AM</td>
+          <td>Nov 25, 2026</td>
+          <td>Room402</td>
+          <td class="status-succesful">Successful Return</td>
+          <td>user401</td>
+        </tr>
+      </tbody>
+     </table>
+    </div>
+  </div>
+</div>
+
+  <script>
+    var navLinks = document.getElementById("navLinks");
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("dashboard-page")) return;
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const id = link.getAttribute("href");
+        const target = id && id.length > 1 ? document.querySelector(id) : null;
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+        }
+      });
+    });
+
+    const tableContainer = document.querySelector(".table-container");
+    if (tableContainer) {
+      tableContainer.addEventListener("click", (e) => {
+        if (window.innerWidth > 768) return;
+        const cell = e.target.closest("td, th");
+        if (!cell) return;
+        cell.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      });
+    }
+  });
+
+</script>
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <title>Claim Item</title>
+</head>
+
+<body class="claim-page">
+  <nav>
+<!-- The Logo and Containers Itself -->
+ <a href="#" class="logo">Gc FindLink</a>
+  <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="category.html">Category Page</a></li>
+         <li><a href="report.html">Report Item</a></li>
+         <li><a href="chatbox.html">Chatbox</a></li>
+    </ul>
+ </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+  <main class="report-card">
+    <h1>Claim An Item</h1>
+    <form id="claimForm">
+      <input type="text" id="itemName" placeholder="Item Name" required>
+      <input type="text" id="itemDesc" placeholder="Describe the item." required>
+      <input type="text" id="lostLocation" placeholder="Where specifically place did you lost the item?" required>
+      <input type="time" id="itemTime" placeholder="Time you last saw the item?" required>
+      <input type="text" id="itemColor" placeholder="Color" required>
+      <input type="text" id="itemShape" placeholder="Shape" required>
+      <input type="text" id="itemModel" placeholder="Model" required>
+      <input type="text" id="itemBrand" placeholder="Brand" required>
+      <input type="text" id="itemAdditionalSecretDetails" placeholder="Input unique details about the item." required>
+      <input type="email" id="contactGmail" placeholder="Please put your gmail account" required>
+      <input type="file" id="itemPhoto" accept="image/*">
+      <button type="submit" class="submit-btn">Done</button>
+    </form>
+      <p id="formMessage"></p>
+  </main>
+  
+  <script>
+  const navLinks = document.getElementById("navLinks");
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+
+    const claimForm =document.getElementById("claimForm");
+    const formMessage =document.getElementById("formMessage");
+    
+    function validateForm() {
+      const itemName =document.getElementById("itemName").value.trim();
+      const itemDesc =document.getElementById("itemDesc").value.trim();
+      const lostLocation =document.getElementById("lostLocation").value.trim();
+      const contactGmail =document.getElementById("contactGmail").value.trim();
+      const itemAdditionalSecretDetails =document.getElementById("itemAdditionalSecretDetails").value.trim();
+      const itemColor =document.getElementById("itemColor").value.trim();
+      const itemBrand =document.getElementById("itemBrand").value.trim();
+      const itemShape =document.getElementById("itemShape").value.trim();
+      const itemModel =document.getElementById("itemModel").value.trim(); 
+
+      
+
+      
+      
+      if (!itemName || !itemDesc || !lostLocation || !contactGmail || !itemAdditionalSecretDetails || !itemColor || !itemBrand || !itemShape || !itemModel) {
+        formMessage.textContent = "Kindly fill out the required details";
+        return false;
+      }
+      formMessage.textContent = "";
+        return true;
+    }
+    function saveClaim(data) {
+      const existing = JSON.parse(localStorage.getItem("claimedItems") || "[]");
+      existing.push(data);
+      localStorage.setItem("claimedItems", JSON.stringify(existing));
+    }
+    
+    function handleClaimSubmit(event) {
+      event.preventDefault();
+      
+      if (!validateForm()) {
+        return;
+      }
+      
+      const fileInput = document.getElementById("itemPhoto");
+      const fileName = fileInput .files[0] ? fileInput .files[0].name : "";
+
+      const newClaim = {
+         itemName: document.getElementById("itemName").value.trim(),
+         description: document.getElementById("itemDesc").value.trim(),
+         location: document.getElementById("lostLocation").value.trim(),
+         time: document.getElementById("itemTime").value.trim(),
+         color: document.getElementById("itemColor").value.trim(),
+         shape: document.getElementById("itemShape").value.trim(),
+         model: document.getElementById("itemModel").value.trim(),
+         brand: document.getElementById("itemBrand").value.trim(),
+         additionalDetails: document.getElementById("itemAdditionalSecretDetails").value.trim(),
+         gmail: document.getElementById("contactGmail").value.trim(),
+         photoName: fileName,
+         status: "Pending Review",
+         submittedAt: new Date().toISOString()
+      };
+      
+      saveClaim(newClaim);
+      claimForm.reset();
+      formMessage.textContent = "You have successfully submitted your claim.";
+
+      setTimeout (() => {
+        window.location.href = "dashboard.html";
+      }, 5000);
+    }
+    
+    function goToClaimStatus()  {
+        window.location.href = "dashboard.html";
+    }
+    
+    claimForm.addEventListener("submit", handleClaimSubmit);
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Page</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+</head>
+
+<body>
+<header>
+<nav>
+<!-- The Logo and Containers Itself -->
+<a href="#" class="logo">GC FindLink</a>
+ <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+         <li><a href="dashboard.html">Dashboard</a></li>
+         <li><a href="category.html">Category Page</a></li>
+         <li><a href="report.html">Report Item</a></li>
+         <li><a href="chatbox.html">Chatbox</a></li>
+        </ul>
+ </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+  
+  <div class="text-box">
+  <h1>GC Lost and Found Website</h1>
+  <p>"A website where every reported missing possessions<br>are listed and to be returned to its respective owners"</p>
+  <a href="" class="hero-btn">Student Sign In</a>
+  <p>Disclaimer: This website is intended only to be accessed by GordonCollege Students and Staffs with their schoolinstitution email.<br>Thank you for understanding.</p>
+  </div>
+</header>
+
+<section class="course">
+  <h1>Guidelines On How to Use the Website</h1>
+  
+  <div class="row">
+    <div class="course-col">
+       <h3>How to Report a Lost Item?</h3>
+       <p>Mobile Users: Tap the Hamburger Icon Menu and select "Report Item".</p>
+       <p>Desktop/Laptop Users: Click the "Report Item" in the navigation bar.</p>
+    </div>
+
+      <div class="course-col">
+       <h3>How to Search for Found Items?</h3>
+       <p>Mobile Users: Tap the Hamburger Icon Menu and select "Category Page" and select from the available categories of your choice and tap "view" to see the image's photo..</p>
+       <p>Desktop/Laptop Users: Click the "Category Page" in the navigation bar bar and select from the available categories of your choice and tap "view" to see the image's photo.</p>
+    </div>
+      <div class="course-col">
+       <h3>How to Claim an Item?</h3>
+       <p>Mobile Users: Tap the Hamburger Icon Menu and select "Claim It here" button once you view the item from the "Category Page" then fill up the required details.</p>
+       <p>Desktop/Laptop Users: Click the "Chatbox" in the navigation bar and select "Claim It here" button once you view the item from the "Category Page" then fill up the required details.</p>
+    </div>
+  </div>
+  
+</section>
+
+<!-------- campus ------>
+
+<section class="campus">
+  <h1>Gordon College</h1>
+  <p>Core Values</p>
+  
+  <div class="row">
+    <div class="campus-col">
+      <img src="Outside-school-students.jpg">
+      <div class="layer">
+        <h3>Character</h3>
+      </div>
+    </div>
+    
+     <div class="campus-col">
+      <img src="achievement.jpg">
+      <div class="layer">
+        <h3>Excellence</h3>
+      </div>
+    </div>
+    
+     <div class="campus-col">
+      <img src="students.jpg">
+      <div class="layer">
+        <h3>Service</h3>
+      </div>
+    </div>
+    
+  </div>
+  
+</section>
+
+<!----- Facilities (To Be Changed) ---->
+
+<section class="facilities">
+  <h1>Main Targets</h1>
+  
+  <div class="row">
+    
+    <div class="facilities-col">
+      <img src="privacy.jpg">
+      <h3>Protect the Security of the Users</h3>
+    </div>
+      
+    <div class="facilities-col">
+      <img src="efficiency.jpg">
+      <h3>Optimized Recovery and Reporting of Lost Items</h3>
+    </div>
+    
+      <div class="facilities-col">
+      <img src="community.jpg">
+      <h3>Build a<br>Social Responsible<br>Community</h3>
+      </div>
+  </div>
+  
+  
+</section>
+
+<!----Call to Action (To Be Changed)---->
+
+<section class="cta">
+  <h1>Contact Information</h1>
+  <a href="" class="hero-btn">Contact Us Here!</a>
+</section>
+
+<!------ Footer ----->
+
+<section class="footer">
+  <h4>About Us</h4>
+  <p>The GC Findlink is a websbite dedicated for reporting and finding lost items within the Gordon College campus.</p>
+</section>
+
+<!-------JavaScript for Menu------->
+<script>
+  
+  var navLinks = document.getElementById("navLinks");
+  function showMenu(){
+    navLinks.style.right = "0";
+  }
+  function hideMenu(){
+    navLinks.style.right = "-200px";
+  }
+  
+</script>
+
+</body>
+</html>
+ 
